@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalsPlayground.WPF", "SignalsPlayground.WPF\SignalsPlayground.WPF.csproj", "{FE28DCA1-4072-42C3-80A2-503E38F6B2EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalsPlayground.CLI", "SignalsPlayground.Console\SignalsPlayground.CLI.csproj", "{BB45481C-DA37-446D-B005-67271DC73C57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalsPlayground.Domain", "SignalsPlayground.Domain\SignalsPlayground.Domain.csproj", "{5E4308EA-10FF-4195-A16E-672230A351A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE28DCA1-4072-42C3-80A2-503E38F6B2EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE28DCA1-4072-42C3-80A2-503E38F6B2EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE28DCA1-4072-42C3-80A2-503E38F6B2EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE28DCA1-4072-42C3-80A2-503E38F6B2EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB45481C-DA37-446D-B005-67271DC73C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB45481C-DA37-446D-B005-67271DC73C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB45481C-DA37-446D-B005-67271DC73C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB45481C-DA37-446D-B005-67271DC73C57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E4308EA-10FF-4195-A16E-672230A351A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E4308EA-10FF-4195-A16E-672230A351A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E4308EA-10FF-4195-A16E-672230A351A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E4308EA-10FF-4195-A16E-672230A351A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C2CF932-22A9-4398-A452-3C5635A9984D}
+	EndGlobalSection
+EndGlobal

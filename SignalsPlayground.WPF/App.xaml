@@ -1,0 +1,20 @@
+﻿<Application
+    x:Class="SignalsPlayground.WPF.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:SignalsPlayground.WPF"
+    xmlns:s="https://github.com/canton7/Stylet">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <s:ApplicationLoader x:Key="Bootstrapper">
+                        <s:ApplicationLoader.Bootstrapper>
+                            <local:AppBootstrapper />
+                        </s:ApplicationLoader.Bootstrapper>
+                    </s:ApplicationLoader>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
