@@ -15,23 +15,44 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <!--  Options  -->
         <StackPanel
             Grid.Row="0"
             HorizontalAlignment="Center"
             Orientation="Horizontal">
-            <TextBlock Margin="5,0,0,0" Text="Wavelet: " />
+            <TextBlock
+                Margin="5,0,0,0"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Text="Wavelet: " />
             <ComboBox
                 Margin="5,0,0,0"
                 ItemsSource="{Binding WaveletKinds}"
                 SelectedItem="{Binding SelectedWavelet}" />
-            <TextBlock Margin="10,0,0,0" Text="Levels of approximation: " />
+            <TextBlock
+                Margin="10,0,0,0"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Text="Levels of approximation: " />
             <ui:NumberBox
                 Width="100"
                 Minimum="0"
                 SpinButtonPlacementMode="Inline"
                 Value="{Binding Levels}" />
-            <TextBlock Margin="5,0,0,0" Text="{Binding PointCount, StringFormat={}{0} points}" />
+            <TextBlock
+                Margin="5,0,0,0"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Text="{Binding PointCount, StringFormat={}{0} points}" />
+            <ui:ToggleSwitch
+                Margin="5,0,0,0"
+                IsOn="{Binding UseScatterPlot}"
+                OffContent="Line Series"
+                OnContent="Scatter Plot" />
         </StackPanel>
+
+        <!--  Plot  -->
         <oxy:PlotView Grid.Row="1" Model="{Binding WaveletPlot}" />
 
     </Grid>

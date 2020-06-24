@@ -50,14 +50,17 @@ namespace SignalsPlayground.WPF.UI.Pages
             set => SetAndNotify(ref _pointCount, value);
         }
 
-        private bool _useScatterPlot = true;
+        private bool _useScatterPlot = false;
         public bool UseScatterPlot
         {
             get => _useScatterPlot;
             set
             {
                 if (SetAndNotify(ref _useScatterPlot, value))
+                {
                     ChangePlot();
+                    Levels = 0;
+                }
             }
         }
 
@@ -104,7 +107,7 @@ namespace SignalsPlayground.WPF.UI.Pages
                 WaveletPlot.Axes.Add(new LinearAxis { Position = AxisPosition.Left });
                 WaveletPlot.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom });
                 WaveletPlot.Series.Add(new LineSeries { LineStyle = LineStyle.Solid, Color = OxyColor.FromArgb(255, 255, 0, 0), Title = "Wavelet Function" });
-                WaveletPlot.Series.Add(new LineSeries { LineStyle = LineStyle.Solid, Color = OxyColor.FromArgb(255, 0, 255, 0), Title = "Scaling Function" });
+                WaveletPlot.Series.Add(new LineSeries { LineStyle = LineStyle.Solid, LineJoin = LineJoin.Miter, Color = OxyColor.FromArgb(255, 0, 255, 0), Title = "Scaling Function" });
             }
         }
 
