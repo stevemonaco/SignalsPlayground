@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalsPlayground.CLI", "Si
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalsPlayground.Domain", "SignalsPlayground.Domain\SignalsPlayground.Domain.csproj", "{5E4308EA-10FF-4195-A16E-672230A351A8}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SignalsPlayground.Python", "SignalsPlayground.Python\SignalsPlayground.Python.pyproj", "{9AD0A73D-86E8-4CC0-B4A4-0D1B64364760}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,8 @@ Global
 		{5E4308EA-10FF-4195-A16E-672230A351A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E4308EA-10FF-4195-A16E-672230A351A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E4308EA-10FF-4195-A16E-672230A351A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AD0A73D-86E8-4CC0-B4A4-0D1B64364760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AD0A73D-86E8-4CC0-B4A4-0D1B64364760}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

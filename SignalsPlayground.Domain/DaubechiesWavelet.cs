@@ -8,7 +8,7 @@ namespace SignalsPlayground.Domain
     public class DaubechiesWavelet
     {
         /// <summary>
-        /// Gets the Debauchies-4 scaling function
+        /// Gets the Debauchies scaling function
         /// </summary>
         /// <param name="x">Array of x-coordinates to map to scaling function</param>
         /// <param name="levels">Levels of approximatation</param>
@@ -19,12 +19,7 @@ namespace SignalsPlayground.Domain
                 throw new ArgumentOutOfRangeException($"{nameof(GetScalingLevels)} parameter {nameof(levels)} ({levels}) must be 0 or larger");
 
             var coefficients = WaveletCoefficients.GetScalingCoefficients(wavelet).ToArray();
-
-            var previous = new Vector2[]
-            {
-                new Vector2(0, 0), new Vector2(1, (1 + MathF.Sqrt(3)) / 2),
-                new Vector2(2, (1 - MathF.Sqrt(3)) / 2), new Vector2(3, 0)
-            };
+            var previous = WaveletCoefficients.GetInitialScalingValues(wavelet).ToArray().Select((x, index) => new Vector2(index, x)).ToArray();
 
             float maxRange = coefficients.Length - 1f;
 
@@ -61,7 +56,7 @@ namespace SignalsPlayground.Domain
         }
 
         /// <summary>
-        /// Gets the Debauchies-4 scaling function
+        /// Gets the Debauchies scaling function
         /// </summary>
         /// <param name="levels">Levels of approximatation</param>
         /// <param name="waveletKind">Wavelet kind to calculate</param>
@@ -98,6 +93,9 @@ namespace SignalsPlayground.Domain
 
             return current;
         }
+
+        public int GetMaxRange(WaveletKind waveletKind) =>
+            WaveletCoefficients.GetScalingCoefficients(waveletKind).Length - 1;
 
         private int PointsAtLevel(int zeroLevelPoints, int level)
         {
