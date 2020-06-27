@@ -1,12 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
+using OxyPlot.Wpf;
 using SignalsPlayground.Domain;
+using SignalsPlayground.WPF.Services;
 using Stylet;
+
+using LineSeries = OxyPlot.Series.LineSeries;
+using ScatterSeries = OxyPlot.Series.ScatterSeries;
+using LinearAxis = OxyPlot.Axes.LinearAxis;
 
 namespace SignalsPlayground.WPF.UI.Pages
 {
@@ -65,14 +69,17 @@ namespace SignalsPlayground.WPF.UI.Pages
         }
 
         private PlotModel _waveletPlot;
+        private readonly IFileSelectService _fileService;
+
         public PlotModel WaveletPlot
         {
             get => _waveletPlot;
             set => SetAndNotify(ref _waveletPlot, value);
         }
 
-        public DaubechiesWaveletPageViewModel()
+        public DaubechiesWaveletPageViewModel(IFileSelectService fileService)
         {
+            _fileService = fileService;
             PageName = "Daubechies Wavelets";
 
             _waveletKinds = new BindableCollection<WaveletKind>
@@ -99,15 +106,15 @@ namespace SignalsPlayground.WPF.UI.Pages
             {
                 WaveletPlot.Axes.Add(new LinearAxis { Position = AxisPosition.Left });
                 WaveletPlot.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom });
-                WaveletPlot.Series.Add(new ScatterSeries { MarkerType = MarkerType.Circle, MarkerSize = 3, MarkerFill = OxyColor.FromArgb(255, 255, 0, 0), Title = "Wavelet Function" });
-                WaveletPlot.Series.Add(new ScatterSeries { MarkerType = MarkerType.Circle, MarkerSize = 3, MarkerFill = OxyColor.FromArgb(255, 0, 255, 0), Title = "Scaling Function" });
+                WaveletPlot.Series.Add(new ScatterSeries { MarkerType = MarkerType.Circle, MarkerSize = 4, MarkerFill = OxyColors.Crimson, Title = "Wavelet Function" });
+                WaveletPlot.Series.Add(new ScatterSeries { MarkerType = MarkerType.Diamond, MarkerSize = 4, MarkerFill = OxyColors.ForestGreen, Title = "Scaling Function" });
             }
             else
             {
                 WaveletPlot.Axes.Add(new LinearAxis { Position = AxisPosition.Left });
                 WaveletPlot.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom });
-                WaveletPlot.Series.Add(new LineSeries { LineStyle = LineStyle.Solid, Color = OxyColor.FromArgb(255, 255, 0, 0), Title = "Wavelet Function" });
-                WaveletPlot.Series.Add(new LineSeries { LineStyle = LineStyle.Solid, LineJoin = LineJoin.Miter, Color = OxyColor.FromArgb(255, 0, 255, 0), Title = "Scaling Function" });
+                WaveletPlot.Series.Add(new LineSeries { LineStyle = LineStyle.Solid, Color = OxyColors.Crimson, Title = "Wavelet Function" });
+                WaveletPlot.Series.Add(new LineSeries { LineStyle = LineStyle.Solid, Color = OxyColors.Black, Title = "Scaling Function" });
             }
         }
 
@@ -176,11 +183,22 @@ namespace SignalsPlayground.WPF.UI.Pages
             }
 
             var xMax = _wavelet.GetMaxRange(_selectedWavelet);
+
+            WaveletPlot.Axes[1].Minimum = -0.05;
             WaveletPlot.Axes[1].Maximum = xMax * 1.05;
-            WaveletPlot.Axes[0].Maximum = yMax + Math.Abs(yMax * 0.05);
-            WaveletPlot.Axes[0].Minimum = yMin - Math.Abs(yMin * 0.05);
+            WaveletPlot.Axes[0].Maximum = 2; // yMax + Math.Abs(yMax * 0.05);
+            WaveletPlot.Axes[0].Minimum = -1; // yMin - Math.Abs(yMin * 0.05);
 
             WaveletPlot.InvalidatePlot(false);
+        }
+
+        public void SaveImage()
+        {
+            if (_fileService.GetImageNameToSaveByUser() is string fileName)
+            {
+                var pngExporter = new PngExporter { Width = 600, Height = 400, Background = OxyColors.White };
+                pngExporter.ExportToFile(_waveletPlot, fileName);
+            }    
         }
     }
 }
