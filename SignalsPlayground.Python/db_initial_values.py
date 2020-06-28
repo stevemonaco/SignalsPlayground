@@ -12,18 +12,18 @@ def f(x):
     return np.dot(y, y)
 
 # maps 0 or coefficient values to matrix A
-def map_index(b, i, j):
+def map_index(a, i, j):
     index = 2 * i - j
-    if index < 0 or index >= len(b):
+    if index < 0 or index >= len(a):
         return 0
     else:
-        return b[index]
+        return a[index]
 
 scaling_coef = np.array(get_scaling_coefficients(wavelet_name))
-bVector = scaling_coef / (1 / scaling_coef.sum()) # normalize coefficients
+aVector = scaling_coef / (1 / scaling_coef.sum()) # normalize coefficients
 
-N = len(bVector)
-A_list = [[map_index(bVector, row, col) for col in range(1, N-1)] for row in range(1, N-1)]
+N = len(aVector)
+A_list = [[map_index(aVector, row, col) for col in range(1, N-1)] for row in range(1, N-1)]
 A = np.array(A_list) - np.identity(N - 2)
 print(f'A: {A}\n')
 
