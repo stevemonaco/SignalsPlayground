@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:SignalsPlayground.WPF.UI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:s="https://github.com/canton7/Stylet"
-    Title="ShellView"
+    Title="Signals Playground"
     Width="800"
     Height="450"
     mc:Ignorable="d">
