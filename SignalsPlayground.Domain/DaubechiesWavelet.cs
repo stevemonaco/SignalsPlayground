@@ -30,27 +30,6 @@ namespace SignalsPlayground.Domain
             for (int level = 1; level <= levels; level++)
             {
                 current = GetScalingLevel(level, previous, coefficients);
-                //current = new Vector2[PointsAtLevel(coefficients.Length, level)];
-                //float distancePerIndex = maxRange / (current.Length - 1);
-
-                //for (int j = 0; j < current.Length; j += 2)
-                //    current[j] = previous[j / 2];
-
-                //for (int j = 1; j < current.Length; j += 2)
-                //{
-                //    float sum = 0;
-                //    float r = j / (float)(1 << level);
-
-                //    for (int k = 0; k < coefficients.Length; k++)
-                //    {
-                //        float rprev = 2 * r - k;
-                //        int rIndex = (int)MathF.Round(rprev / distancePerIndex);
-
-                //        if (rprev >= 0 && rprev <= maxRange)
-                //            sum += coefficients[k] * current[rIndex].Y;
-                //    }
-                //    current[j] = new Vector2(r, sum);
-                //}
 
                 yield return current;
                 previous = current;
