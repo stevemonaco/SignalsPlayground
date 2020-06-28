@@ -125,10 +125,10 @@ namespace SignalsPlayground.WPF.UI.Pages
 
             if (UseScatterPlot)
             {
-                var waveletPoints = _wavelet.GetWaveletLevel(Levels, SelectedWavelet)
+                var waveletPoints = _wavelet.GetWaveletFunction(Levels, SelectedWavelet)
                     .Select(x => new ScatterPoint(x.X, x.Y));
 
-                var scalingPoints = _wavelet.GetScalingLevels(Levels, SelectedWavelet)
+                var scalingPoints = _wavelet.GetScalingFunction(Levels, SelectedWavelet)
                     .Last()
                     .Select(x => new ScatterPoint(x.X, x.Y));
 
@@ -154,10 +154,10 @@ namespace SignalsPlayground.WPF.UI.Pages
             }
             else
             {
-                var waveletPoints = _wavelet.GetWaveletLevel(Levels, SelectedWavelet)
+                var waveletPoints = _wavelet.GetWaveletFunction(Levels, SelectedWavelet)
                     .Select(x => new DataPoint(x.X, x.Y));
 
-                var scalingPoints = _wavelet.GetScalingLevels(Levels, SelectedWavelet)
+                var scalingPoints = _wavelet.GetScalingFunction(Levels, SelectedWavelet)
                     .Last()
                     .Select(x => new DataPoint(x.X, x.Y));
 
@@ -186,8 +186,8 @@ namespace SignalsPlayground.WPF.UI.Pages
 
             WaveletPlot.Axes[1].Minimum = -0.05;
             WaveletPlot.Axes[1].Maximum = xMax * 1.05;
-            WaveletPlot.Axes[0].Maximum = 2; // yMax + Math.Abs(yMax * 0.05);
-            WaveletPlot.Axes[0].Minimum = -1; // yMin - Math.Abs(yMin * 0.05);
+            WaveletPlot.Axes[0].Maximum = yMax + Math.Abs(yMax * 0.05);
+            WaveletPlot.Axes[0].Minimum = yMin - Math.Abs(yMin * 0.05);
 
             WaveletPlot.InvalidatePlot(false);
         }
