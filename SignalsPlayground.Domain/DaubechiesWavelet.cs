@@ -41,13 +41,13 @@ namespace SignalsPlayground.Domain
                 float maxRange = scalingCoefs.Length - 1f;
                 float distancePerIndex = maxRange / (scaling.Length - 1);
 
-                for (int j = 0; j < scaling.Length; j += 2)
-                    scaling[j] = previous[j / 2];
+                for (int n = 0; n < scaling.Length; n += 2)
+                    scaling[n] = previous[n / 2];
 
-                for (int j = 1; j < scaling.Length; j += 2)
+                for (int n = 1; n < scaling.Length; n += 2)
                 {
                     float sum = 0;
-                    float r = j / (float)(1 << level);
+                    float r = n / (float)(1 << level);
 
                     for (int k = 0; k < scalingCoefs.Length; k++)
                     {
@@ -57,7 +57,7 @@ namespace SignalsPlayground.Domain
                         if (rPrevious >= 0 && rPrevious <= maxRange)
                             sum += scalingCoefs[k] * scaling[rIndex].Y;
                     }
-                    scaling[j] = new Vector2(r, sum);
+                    scaling[n] = new Vector2(r, sum);
                 }
 
                 return scaling;
@@ -87,20 +87,20 @@ namespace SignalsPlayground.Domain
                 float maxRange = waveletCoefs.Length - 1f;
                 float distancePerPoint = maxRange / (wavelet.Length - 1);
 
-                for (int j = 0; j < wavelet.Length; j++)
+                for (int n = 0; n < wavelet.Length; n++)
                 {
                     float sum = 0;
-                    float r = j * distancePerPoint;
+                    float r = n * distancePerPoint;
 
                     for (int k = 0; k < waveletCoefs.Length; k++)
                     {
-                        float rprev = 2 * r - k;
-                        int rIndex = (int)MathF.Round(rprev / distancePerPoint);
+                        float rPrevious = 2 * r - k;
+                        int rIndex = (int)MathF.Round(rPrevious / distancePerPoint);
 
-                        if (rprev >= 0 && rprev <= maxRange)
+                        if (rPrevious >= 0 && rPrevious <= maxRange)
                             sum += waveletCoefs[k] * scaling[rIndex].Y;
                     }
-                    wavelet[j] = new Vector2(r, sum);
+                    wavelet[n] = new Vector2(r, sum);
                 }
 
                 return wavelet;
