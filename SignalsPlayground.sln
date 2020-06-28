@@ -3,13 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalsPlayground.WPF", "SignalsPlayground.WPF\SignalsPlayground.WPF.csproj", "{FE28DCA1-4072-42C3-80A2-503E38F6B2EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalsPlayground.WPF", "SignalsPlayground.WPF\SignalsPlayground.WPF.csproj", "{FE28DCA1-4072-42C3-80A2-503E38F6B2EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalsPlayground.CLI", "SignalsPlayground.Console\SignalsPlayground.CLI.csproj", "{BB45481C-DA37-446D-B005-67271DC73C57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalsPlayground.CLI", "SignalsPlayground.Console\SignalsPlayground.CLI.csproj", "{BB45481C-DA37-446D-B005-67271DC73C57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalsPlayground.Domain", "SignalsPlayground.Domain\SignalsPlayground.Domain.csproj", "{5E4308EA-10FF-4195-A16E-672230A351A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalsPlayground.Domain", "SignalsPlayground.Domain\SignalsPlayground.Domain.csproj", "{5E4308EA-10FF-4195-A16E-672230A351A8}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SignalsPlayground.Python", "SignalsPlayground.Python\SignalsPlayground.Python.pyproj", "{9AD0A73D-86E8-4CC0-B4A4-0D1B64364760}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6B2CBFC3-7F3D-4379-B99E-E149054DBF34}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
